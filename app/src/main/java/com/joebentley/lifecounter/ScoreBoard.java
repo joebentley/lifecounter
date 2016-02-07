@@ -12,6 +12,7 @@ public class ScoreBoard {
 
     private ScoreBoard() {
         mScores = new ArrayList<>();
+        mScores.add(new Score(0, 0));
     }
 
     public static ScoreBoard get(Context context) {
@@ -24,6 +25,14 @@ public class ScoreBoard {
 
     public int getCurrentScore(int nth) throws IndexOutOfBoundsException {
         return mScores.get(mScores.size() - 1).getScore(nth);
+    }
+
+    public Score getCurrentScore() {
+        return mScores.get(mScores.size() - 1);
+    }
+
+    public Score newCurrentScore() {
+        return new Score(getCurrentScore());
     }
 
     public List<Score> getScoreHistory() {
