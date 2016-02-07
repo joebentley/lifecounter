@@ -24,7 +24,7 @@ public class Score {
     }
 
     public Score(Score other) {
-        this.mScore = other.mScore;
+        this.mScore = new ArrayList<>(other.mScore);
     }
 
     public Integer getScore(int nth) throws IndexOutOfBoundsException {
