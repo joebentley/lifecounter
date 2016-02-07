@@ -18,8 +18,13 @@ public class Score {
 
     public Score(int playerOneScore, int playerTwoScore) {
         mScore = new ArrayList<>();
-        mScore.add(playerOneScore, playerTwoScore);
+        mScore.add(playerOneScore);
+        mScore.add(playerTwoScore);
         mDate = new Date();
+    }
+
+    public Score(Score other) {
+        this.mScore = other.mScore;
     }
 
     public Integer getScore(int nth) throws IndexOutOfBoundsException {
@@ -33,4 +38,36 @@ public class Score {
     public Integer getPlayerTwoScore() throws IndexOutOfBoundsException {
         return mScore.get(1);
     }
+
+    public Score setScore(int nth, int score) throws IndexOutOfBoundsException {
+        mScore.set(nth, score);
+        return this;
+    }
+
+    public Score setPlayerOneScore(int score) throws IndexOutOfBoundsException {
+        mScore.set(0, score);
+        return this;
+    }
+
+    public Score setPlayerTwoScore(int score) throws IndexOutOfBoundsException {
+        mScore.set(1, score);
+        return this;
+    }
+
+    public Score addToScore(int nth, int toadd) throws IndexOutOfBoundsException {
+        mScore.set(nth, getScore(nth) + toadd);
+        return this;
+    }
+
+    public Score addToPlayerOneScore(int toadd) throws IndexOutOfBoundsException {
+        mScore.set(0, getPlayerOneScore() + toadd);
+        return this;
+    }
+
+    public Score addToPlayerTwoScore(int toadd) throws IndexOutOfBoundsException {
+        mScore.set(1, getPlayerTwoScore() + toadd);
+        return this;
+    }
+
+
 }
