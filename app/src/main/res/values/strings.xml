@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LifeCounter</string>
+
+    <string name="plus_button">+</string>
+    <string name="minus_button">-</string>
+    <string name="player_one_plus_button_text">Add life player one</string>
+    <string name="player_one_minus_button_text">Take life player one</string>
+    <string name="player_two_plus_button_text">Add life player two</string>
+    <string name="player_two_minus_button_text">Take life player two</string>
+
+    <string name="player_one_default_name">Marie</string>
+    <string name="player_two_default_name">Joe</string>
+
+</resources>
