@@ -1,5 +1,6 @@
 package com.joebentley.lifecounter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -85,6 +86,8 @@ public class LifeCounterFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_show_scoreboard:
+                Intent intent = new Intent(getActivity(), ScoreBoardActivity.class);
+                startActivity(intent);
                 return true;
 
             default:
