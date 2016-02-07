@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -40,7 +42,8 @@ public class ScoreBoardFragment extends Fragment {
     private void updateUI() {
         ScoreBoard scoreBoard = ScoreBoard.get(getActivity());
 
-        List<Score> scores = scoreBoard.getScoreHistory();
+        List<Score> scores = new ArrayList<>(scoreBoard.getScoreHistory());
+        Collections.reverse(scores);
 
         ScoreAdapter mAdapter = new ScoreAdapter(scores);
         mScoreRecyclerView.setAdapter(mAdapter);
@@ -61,8 +64,8 @@ public class ScoreBoardFragment extends Fragment {
 
         public void bindScore(Score score) {
             mScore = score;
-            mPlayerOneScoreTextView.setText("Player one: " + mScore.getPlayerOneScore());
-            mPlayerTwoScoreTextView.setText("Player two: " + mScore.getPlayerTwoScore());
+            mPlayerOneScoreTextView.setText(getString(R.string.player_one_score_format, mScore.getPlayerOneScore()));
+            mPlayerTwoScoreTextView.setText(getString(R.string.player_two_score_format, mScore.getPlayerTwoScore()));
         }
     }
 
