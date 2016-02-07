@@ -11,4 +11,6 @@
     <string name="player_one_default_name">Marie</string>
     <string name="player_two_default_name">Joe</string>
 
+    <string name="menu_item_show_scoreboard">Show Scoreboard</string>
+
 </resources>
