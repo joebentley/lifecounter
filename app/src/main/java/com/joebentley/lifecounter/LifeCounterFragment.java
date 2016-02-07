@@ -6,9 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by joe on 06/02/2016.
- */
 public class LifeCounterFragment extends Fragment {
 
     @Override
