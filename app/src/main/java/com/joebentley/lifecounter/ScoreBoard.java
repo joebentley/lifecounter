@@ -31,7 +31,7 @@ public class ScoreBoard {
         return mScores.get(mScores.size() - 1);
     }
 
-    public Score newCurrentScore() {
+    public Score cloneCurrentScore() {
         return new Score(getCurrentScore());
     }
 
