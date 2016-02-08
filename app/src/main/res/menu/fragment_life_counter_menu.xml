@@ -4,10 +4,10 @@
 
     <item android:id="@+id/menu_item_rest_current_score"
           android:title="@string/menu_item_reset_game"
-          app:showAsAction="ifRoom" />
+          app:showAsAction="never" />
 
     <item android:id="@+id/menu_item_show_scoreboard"
           android:title="@string/menu_item_show_scoreboard"
-          app:showAsAction="never" />
+          app:showAsAction="ifRoom" />
 
 </menu>
