@@ -7,6 +7,7 @@ import java.util.List;
 public class Score {
 
     private List<Integer> mScore;
+
     private Date mDate;
 
     public Score() {
@@ -25,6 +26,7 @@ public class Score {
 
     public Score(Score other) {
         this.mScore = new ArrayList<>(other.mScore);
+        this.mDate = other.getDate();
     }
 
     public Integer getScore(int nth) throws IndexOutOfBoundsException {
@@ -69,5 +71,11 @@ public class Score {
         return this;
     }
 
+    public Date getDate() {
+        return mDate;
+    }
 
+    public void setDate(Date date) {
+        mDate = date;
+    }
 }

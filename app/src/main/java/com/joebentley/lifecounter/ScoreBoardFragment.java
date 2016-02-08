@@ -4,14 +4,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 
 public class ScoreBoardFragment extends Fragment {
@@ -49,20 +52,25 @@ public class ScoreBoardFragment extends Fragment {
     private class ScoreHolder extends RecyclerView.ViewHolder {
         private Score mScore;
 
-        private TextView mPlayerOneScoreTextView;
-        private TextView mPlayerTwoScoreTextView;
+        private TextView mDateTextView;
+        private TextView mScoreTextView;
 
         public ScoreHolder(View itemView) {
             super(itemView);
 
-            mPlayerOneScoreTextView = (TextView) itemView.findViewById(R.id.player_one_list_score_textview);
-            mPlayerTwoScoreTextView = (TextView) itemView.findViewById(R.id.player_two_list_score_textview);
+            mDateTextView = (TextView) itemView.findViewById(R.id.score_date_textview);
+            mScoreTextView = (TextView) itemView.findViewById(R.id.list_score_textview);
         }
 
         public void bindScore(Score score) {
             mScore = score;
-            mPlayerOneScoreTextView.setText(getString(R.string.player_one_score_format, mScore.getPlayerOneScore()));
-            mPlayerTwoScoreTextView.setText(getString(R.string.player_two_score_format, mScore.getPlayerTwoScore()));
+
+            SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+            String time = df.format(mScore.getDate());
+
+            mDateTextView.setText(time);
+            mScoreTextView.setText(getString(R.string.list_item_score_format,
+                    mScore.getPlayerOneScore(), mScore.getPlayerTwoScore()));
         }
     }
 

@@ -3,6 +3,7 @@ package com.joebentley.lifecounter;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ScoreBoard {
@@ -32,9 +33,11 @@ public class ScoreBoard {
         return mScores.get(mScores.size() - 1);
     }
 
-    // Add a new copy of the current score to the list
+    // Add a new copy of the current score to the list, giving it the new date
     public void duplicateCurrentScore() {
-        mScores.add(cloneCurrentScore());
+        Score score = cloneCurrentScore();
+        score.setDate(new Date());
+        mScores.add(score);
     }
 
     public Score cloneCurrentScore() {
