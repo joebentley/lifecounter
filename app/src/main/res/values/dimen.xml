@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="plus_button_margin">20dp</dimen>
-    <dimen name="minus_button_margin">20dp</dimen>
+    <dimen name="plus_button_margin">15dp</dimen>
+    <dimen name="minus_button_margin">15dp</dimen>
+    <dimen name="score_linear_layout_bottom_padding">30dp</dimen>
 </resources>

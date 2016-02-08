@@ -19,6 +19,7 @@
         android:layout_centerVertical="true"
         android:layout_toStartOf="@id/end_turn_button"
         android:layout_toLeftOf="@id/end_turn_button"
+        android:paddingBottom="@dimen/score_linear_layout_bottom_padding"
         android:orientation="vertical">
 
         <TextView
@@ -65,6 +66,7 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/end_turn_button"
         android:layout_toRightOf="@id/end_turn_button"
+        android:paddingBottom="@dimen/score_linear_layout_bottom_padding"
         android:orientation="vertical">
 
         <TextView
