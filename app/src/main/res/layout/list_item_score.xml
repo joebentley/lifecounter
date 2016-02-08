@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        tools:text="20-20"
+        tools:text="20 - 20"
         android:textSize="18sp"
         android:padding="7dp" />
 
