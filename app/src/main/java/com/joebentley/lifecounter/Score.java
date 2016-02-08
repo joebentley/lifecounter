@@ -12,8 +12,8 @@ public class Score {
 
     public Score() {
         mScore = new ArrayList<>();
-        mScore.add(0);
-        mScore.add(0);
+        mScore.add(ScoreBoard.defaultLife);
+        mScore.add(ScoreBoard.defaultLife);
         mDate = new Date();
     }
 
@@ -69,6 +69,12 @@ public class Score {
     public Score addToPlayerTwoScore(int toadd) throws IndexOutOfBoundsException {
         mScore.set(1, getPlayerTwoScore() + toadd);
         return this;
+    }
+
+    public void resetToDefault() {
+        mDate = new Date();
+        setPlayerOneScore(ScoreBoard.defaultLife);
+        setPlayerTwoScore(ScoreBoard.defaultLife);
     }
 
     public Date getDate() {

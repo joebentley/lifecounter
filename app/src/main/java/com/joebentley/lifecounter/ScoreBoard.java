@@ -9,11 +9,13 @@ import java.util.List;
 public class ScoreBoard {
     private static ScoreBoard mScoreBoard;
 
+    public static final int defaultLife = 20;
+
     private List<Score> mScores;
 
     private ScoreBoard() {
         mScores = new ArrayList<>();
-        mScores.add(new Score(20, 20));
+        mScores.add(new Score(defaultLife, defaultLife));
         duplicateCurrentScore();
     }
 
@@ -52,7 +54,9 @@ public class ScoreBoard {
         mScores.add(score);
     }
 
-    public void clear() {
+    public void resetScoreBoard() {
         mScores.clear();
+        mScores.add(new Score(defaultLife, defaultLife));
+        duplicateCurrentScore();
     }
 }

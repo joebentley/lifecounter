@@ -1,8 +1,10 @@
 package com.joebentley.lifecounter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,7 +15,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 public class LifeCounterFragment extends Fragment {
+
+    private static final String DIALOG_RESET = "DialogReset";
 
     private TextView mPlayerOneTextView;
     private TextView mPlayerTwoTextView;
@@ -92,6 +98,13 @@ public class LifeCounterFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_item_rest_current_score:
+                FragmentManager manager = getFragmentManager();
+                ResetGameDialog dialog = new ResetGameDialog();
+                dialog.setTargetFragment(this, 0);
+                dialog.show(getFragmentManager(), DIALOG_RESET);
+                return true;
+
             case R.id.menu_item_show_scoreboard:
                 Intent intent = new Intent(getActivity(), ScoreBoardActivity.class);
                 startActivity(intent);
@@ -106,5 +119,10 @@ public class LifeCounterFragment extends Fragment {
         ScoreBoard scoreBoard = ScoreBoard.get(getActivity());
         mPlayerOneTextView.setText(String.valueOf(scoreBoard.getCurrentScore(0)));
         mPlayerTwoTextView.setText(String.valueOf(scoreBoard.getCurrentScore(1)));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        updateScoreTextViews();
     }
 }

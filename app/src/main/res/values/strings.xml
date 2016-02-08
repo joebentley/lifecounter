@@ -14,7 +14,12 @@
     <string name="player_one_default_name">Marie</string>
     <string name="player_two_default_name">Joe</string>
 
+    <string name="menu_item_reset_game">Reset Game</string>
     <string name="menu_item_show_scoreboard">Show Scoreboard</string>
 
     <string name="list_item_score_format">%1$d - %2$d</string>
+
+    <string name="reset_dialog_message">Would you also like to clear the scoreboard?</string>
+    <string name="reset_dialog_yes">Yes</string>
+    <string name="reset_dialog_no">No</string>
 </resources>

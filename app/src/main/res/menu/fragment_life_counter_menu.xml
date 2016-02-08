@@ -2,7 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/menu_item_rest_current_score"
+          android:title="@string/menu_item_reset_game"
+          app:showAsAction="ifRoom" />
+
     <item android:id="@+id/menu_item_show_scoreboard"
           android:title="@string/menu_item_show_scoreboard"
-          app:showAsAction="ifRoom" />
+          app:showAsAction="never" />
+
 </menu>
