@@ -86,7 +86,7 @@ public class LifeCounterFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_life_counter, menu);
+        inflater.inflate(R.menu.fragment_life_counter_menu, menu);
     }
 
     @Override
