@@ -12,7 +12,8 @@ public class ScoreBoard {
 
     private ScoreBoard() {
         mScores = new ArrayList<>();
-        mScores.add(new Score(0, 0));
+        mScores.add(new Score(20, 20));
+        duplicateCurrentScore();
     }
 
     public static ScoreBoard get(Context context) {
@@ -31,6 +32,11 @@ public class ScoreBoard {
         return mScores.get(mScores.size() - 1);
     }
 
+    // Add a new copy of the current score to the list
+    public void duplicateCurrentScore() {
+        mScores.add(cloneCurrentScore());
+    }
+
     public Score cloneCurrentScore() {
         return new Score(getCurrentScore());
     }
@@ -41,5 +47,9 @@ public class ScoreBoard {
 
     public void addScore(Score score) {
         mScores.add(score);
+    }
+
+    public void clear() {
+        mScores.clear();
     }
 }
