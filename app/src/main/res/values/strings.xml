@@ -13,6 +13,6 @@
 
     <string name="menu_item_show_scoreboard">Show Scoreboard</string>
 
-    <string name="player_one_score_format">Player one: %1$</string>
-    <string name="player_two_score_format">Player two: %1$</string>
+    <string name="player_one_score_format">Player one: %d</string>
+    <string name="player_two_score_format">Player two: %d</string>
 </resources>
