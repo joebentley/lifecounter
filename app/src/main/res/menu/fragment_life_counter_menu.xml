@@ -10,4 +10,10 @@
           android:title="@string/menu_item_show_scoreboard"
           app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/menu_item_keep_awake"
+          android:title="@string/menu_item_keep_awake"
+          app:showAsAction="never"
+          android:checkable="true"
+          android:checked="true" />
+
 </menu>

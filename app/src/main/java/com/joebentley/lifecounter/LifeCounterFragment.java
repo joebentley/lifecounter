@@ -1,7 +1,8 @@
 package com.joebentley.lifecounter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,15 +12,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
-
 public class LifeCounterFragment extends Fragment {
 
     private static final String DIALOG_RESET = "DialogReset";
+    private static final String KEEP_AWAKE_PREF_KEY = "KeepAwake";
 
     private TextView mPlayerOneTextView;
     private TextView mPlayerTwoTextView;
@@ -28,6 +29,15 @@ public class LifeCounterFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        // Set keep awake depending on preference
+        SharedPreferences settings = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+        if (settings.getBoolean(KEEP_AWAKE_PREF_KEY, true)) {
+            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        } else {
+            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 
     @Override
@@ -83,7 +93,6 @@ public class LifeCounterFragment extends Fragment {
             }
         });
 
-
         updateScoreTextViews();
 
         return v;
@@ -108,6 +117,21 @@ public class LifeCounterFragment extends Fragment {
             case R.id.menu_item_show_scoreboard:
                 Intent intent = new Intent(getActivity(), ScoreBoardActivity.class);
                 startActivity(intent);
+                return true;
+
+            case R.id.menu_item_keep_awake:
+                item.setChecked(!item.isChecked());
+
+                // Save keep awake setting
+                SharedPreferences settings = getActivity().getPreferences(Context.MODE_PRIVATE);
+                settings.edit().putBoolean(KEEP_AWAKE_PREF_KEY, item.isChecked()).apply();
+
+                if (item.isChecked()) {
+                    getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                } else {
+                    getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                }
+
                 return true;
 
             default:

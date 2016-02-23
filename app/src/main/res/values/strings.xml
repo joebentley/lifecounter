@@ -16,6 +16,7 @@
 
     <string name="menu_item_reset_game">Reset Game</string>
     <string name="menu_item_show_scoreboard">Show Scoreboard</string>
+    <string name="menu_item_keep_awake">Keep Awake</string>
 
     <string name="list_item_score_format">%1$d - %2$d</string>
 
